@@ -20,23 +20,23 @@ export type TopicInfo = {
 
 export const topicInfo: Record<TopicType, TopicInfo> = {
   General: {
-    title: "General Announcement...",
-    sectionBgColor: "rgb(217, 221, 99)",
-    itemBgColor: "rgb(197, 204, 20)",
+    title: "General Announcements",
+    sectionBgColor: "#ea9c1b",
+    itemBgColor: "#5f685a"
   },
   Coding: {
-    title: "Coding Announcement...",
-    sectionBgColor: "green.200",
-    itemBgColor: "green.500",
+    title: "Coding Announcement",
+    sectionBgColor: "#f3bc77",
+    itemBgColor: "#a55233",
   },
   DSA: {
-    title: "DSA Announcement...",
-    sectionBgColor: "blue.200",
-    itemBgColor: "blue.500",
+    title: "DSA Announcement",
+    sectionBgColor: "blue.500",
+    itemBgColor: "#65589c",
   },
   CSBT: {
-    title: "CSBT Announcement....",
-    sectionBgColor: "yellow.200",
-    itemBgColor: "yellow.500",
+    title: "CSBT Announcement",
+    sectionBgColor: "#8b104e",
+    itemBgColor: "#520556",
   },
 };

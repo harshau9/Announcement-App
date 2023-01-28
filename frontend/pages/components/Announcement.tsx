@@ -22,8 +22,8 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
     addTopic && addTopic(value, type);
   };
   return (
-    <Card bgColor={"black"}>
-      <CardBody>
+    <Card bgColor={"black"} >
+      <CardBody >
         <Flex direction={"column"} gap={2}>
           <Input
             placeholder="new Announcement..."
@@ -38,7 +38,6 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
             <Button
               flex="1"
               variant="ghost"
-              leftIcon={<BiSave />}
               onClick={handleSave}
               data-cy="save-topic-btn"
               backgroundColor="rgb(64, 229, 75)"
