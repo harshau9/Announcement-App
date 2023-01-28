@@ -27,6 +27,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const toast = useToast();
 
+
   const handleSubmit = () => {
     const payload = {
       name,
@@ -44,6 +45,15 @@ const Register = () => {
       .then((res) => res.json())
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+      toast({
+        title: 'Sign-Up Successfull.',
+        description: "Your account created Successfully",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+        position:"top"
+      })      
   };
   return (
     <Flex
@@ -119,15 +129,7 @@ const Register = () => {
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>
-            <Link href="/login"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
-                  toast({
-                    title: 'Sign-Up Successfull.',
-                    description: "Your account created Successfully",
-                    status: 'success',
-                    duration: 2000,
-                    isClosable: true,
-                    position:"top"
-                  })}}>Signup</Button></Link>
+            <Link href="/login"><Button style={{width:"90%",margin:"5%"}} onClick={handleSubmit}>Signup</Button></Link>
             </Stack>
           </Stack>
         </Box>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Router from "next/router";
 import {
   Flex,
   Heading,
@@ -23,8 +24,61 @@ const CFaLock = chakra(FaLock);
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+
   const handleShowClick = () => setShowPassword(!showPassword);
   const toast = useToast();
+  const handleSubmit = () => {
+    const payload={
+      email,
+      password
+    }
+    fetch("http://localhost:8080/users/login",{
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res=>res.json())
+    .then(res=>{
+      console.log(res)
+      localStorage.setItem('token', res.token) 
+      Router.push("/announcer");
+    })
+    .then(res => {
+      if (res.status === 200 || res.status === 201) {
+          console.log(res)
+          localStorage.setItem('token', res.token) 
+          toast({
+              title: 'Login Successful.',
+              description: "Now you can see the latest announcements of each category",
+              status: 'success',
+              duration: 2000,
+              isClosable: true,
+              position:"top"
+          })
+      } else {
+          toast({
+              title: 'Login Unsuccessful.',
+              description: "Invalid Email or Password",
+              status: 'error',
+              duration: 2000,
+              isClosable: true,
+              position:"top"
+          })
+      }
+    })
+    .catch(err=>console.log(err))
+
+
+  }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      Router.push("/announcer");
+    }
+  }, []);
   return (
     <Flex
       flexDirection="column"
@@ -57,7 +111,7 @@ const Login = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" style={{color:"white"}} />
+                  <Input type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} style={{color:"white"}} />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -69,7 +123,7 @@ const Login = () => {
                   />
                   <Input
                     type={showPassword ? "text" : "password"}
-                    placeholder="Password" style={{color:"white"}}
+                    placeholder="Password"  placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{color:"white"}}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -80,7 +134,7 @@ const Login = () => {
                 <FormHelperText textAlign="right">
                 </FormHelperText>
               </FormControl>
-              <Link href="/announcer"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
+              {/* <Link href="/announcer"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
                   toast({
                     title: 'Login Successfull.',
                     description: "Now you can see the latest announcements of each category",
@@ -88,7 +142,8 @@ const Login = () => {
                     duration: 2000,
                     isClosable: true,
                     position:"top"
-                  })}}>Login</Button></Link>
+                  })}}>Login</Button></Link> */}
+                  <Button  onClick={handleSubmit}>Login</Button>
             </Stack>
           </form>
         </Box>
