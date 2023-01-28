@@ -9,8 +9,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { Topic, topicInfo, TopicType } from "../constants";
-import TopicItem from "./TopicItem";
-import TopicInput from "./TopicInput";
+import TopicItem from "./AnnouncementItem";
+import TopicInput from "./Announcement";
 import { BiMessageSquareAdd } from "react-icons/bi";
 
 type TopicSectionProps = {

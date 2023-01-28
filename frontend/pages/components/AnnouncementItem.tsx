@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Button, Card, CardBody, Flex, Heading } from "@chakra-ui/react";
 import { BiLike, BiTrash } from "react-icons/bi";
 
-import { TopicsContext } from "../context/TopicsContext";
+import { TopicsContext } from "../context/AnnouncmentContext";
 import { Topic, topicInfo } from "../constants";
 
 interface TopicItemProps extends Topic {}
@@ -19,9 +19,9 @@ const TopicItem = (props: TopicItemProps) => {
   return (
     <Card bgColor={info.itemBgColor} data-cy="topic-item">
       <CardBody>
-        <Heading as={"h6"} data-cy="topic-message">
+        <h3 data-cy="topic-message" style={{color:"white"}}>
           {props.message}
-        </Heading>
+        </h3>
         <Flex justify="space-between" flexWrap="wrap" gap={2}>
           <Button
             flex="1"

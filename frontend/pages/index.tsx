@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Text } from "@chakra-ui/react";
-import TopicsBoard from "./components/TopicsBoard";
+import TopicsBoard from "./components/AnnouncementBoard";
 
 export default function Home() {
   return (

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Button, Card, CardBody, Flex, Input } from "@chakra-ui/react";
 import { BiSave } from "react-icons/bi";
-import { MdOutlineCancel } from "react-icons/md";
+
 
 import { TopicType } from "../constants";
-import { TopicsContext } from "../context/TopicsContext";
+import { TopicsContext } from "../context/AnnouncmentContext";
 
 type TopicInputProps = {
   type: TopicType;
@@ -22,16 +22,17 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
     addTopic && addTopic(value, type);
   };
   return (
-    <Card bgColor={"white"}>
+    <Card bgColor={"black"}>
       <CardBody>
         <Flex direction={"column"} gap={2}>
           <Input
-            placeholder="new topic..."
+            placeholder="new Announcement..."
             size="md"
-            maxLength={20}
+            // maxLength={20}
             value={value}
             onChange={handleChange}
             data-cy="input-topic"
+            color="white"
           />
           <Flex justify="space-between" flexWrap="wrap">
             <Button
@@ -40,15 +41,17 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
               leftIcon={<BiSave />}
               onClick={handleSave}
               data-cy="save-topic-btn"
+              backgroundColor="rgb(64, 229, 75)"
+              marginRight="10px"
             >
-              Save
+              Create
             </Button>
             <Button
               flex="1"
               variant="ghost"
-              leftIcon={<MdOutlineCancel />}
               onClick={onCancel}
               data-cy="cancel-add-topic-btn"
+              backgroundColor="red"
             >
               Cancel
             </Button>

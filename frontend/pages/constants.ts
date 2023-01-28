@@ -1,8 +1,8 @@
 export enum TopicType {
-  Pending = "Pending",
-  Completed = "Completed",
-  Revision = "Revision",
-  New = "New",
+  General = "General",
+  Coding = "Coding",
+  DSA = "DSA",
+  CSBT = "CSBT",
 }
 
 export type Topic = {
@@ -19,23 +19,23 @@ export type TopicInfo = {
 };
 
 export const topicInfo: Record<TopicType, TopicInfo> = {
-  Pending: {
-    title: "Pending Topics...",
-    sectionBgColor: "red.200",
-    itemBgColor: "red.500",
+  General: {
+    title: "General Announcement...",
+    sectionBgColor: "rgb(217, 221, 99)",
+    itemBgColor: "rgb(197, 204, 20)",
   },
-  Completed: {
-    title: "Completed Topics...",
+  Coding: {
+    title: "Coding Announcement...",
     sectionBgColor: "green.200",
     itemBgColor: "green.500",
   },
-  Revision: {
-    title: "Topics needing revision...",
+  DSA: {
+    title: "DSA Announcement...",
     sectionBgColor: "blue.200",
     itemBgColor: "blue.500",
   },
-  New: {
-    title: "New Topics....",
+  CSBT: {
+    title: "CSBT Announcement....",
     sectionBgColor: "yellow.200",
     itemBgColor: "yellow.500",
   },
