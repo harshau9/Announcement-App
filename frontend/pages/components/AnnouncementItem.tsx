@@ -17,13 +17,13 @@ const TopicItem = (props: TopicItemProps) => {
     deleteTopic && deleteTopic(props.id);
   };
   return (
-    <Card bgColor={info.itemBgColor} data-cy="topic-item">
+    <Card bgColor={info.itemBgColor} data-cy="topic-item" >
       <CardBody>
         <h3 data-cy="topic-message" style={{color:"white"}}>
           {props.message}
         </h3>
-        <Flex justify="space-between" flexWrap="wrap" gap={2}>
-          <Button
+        <Flex flexDirection="column" flexWrap="wrap" gap={2}>
+          {/* <Button
             flex="1"
             variant="ghost"
             leftIcon={<BiLike />}
@@ -31,13 +31,18 @@ const TopicItem = (props: TopicItemProps) => {
             data-cy="like-topic-btn"
           >
             ({props.likes}) Likes
-          </Button>
+          </Button> */}
           <Button
             flex="1"
             variant="ghost"
-            leftIcon={<BiTrash />}
             onClick={onDeleteHandle}
             data-cy="delete-topic-btn"
+            width ="auto"
+            backgroundColor="red"
+            margin="auto"
+            border="1px solid white"
+            padding="5px"
+            marginTop="10px"
           >
             Delete
           </Button>
