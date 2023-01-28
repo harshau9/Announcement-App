@@ -1,29 +1,27 @@
 import React, { useContext, useState } from "react";
 import { Button, Card, CardBody, Flex, Input } from "@chakra-ui/react";
-import { BiSave } from "react-icons/bi";
 
+import { AnnouncerType } from "../constants";
+import { AnnouncersContext } from "../context/AnnouncementContext";
 
-import { TopicType } from "../constants";
-import { TopicsContext } from "../context/AnnouncmentContext";
-
-type TopicInputProps = {
-  type: TopicType;
+type AnnouncerInputProps = {
+  type: AnnouncerType;
   onCancel: () => void;
 };
-const TopicInput = ({ type, onCancel }: TopicInputProps) => {
+const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
   const [value, setValue] = useState<string>("");
-  const { addTopic } = useContext(TopicsContext);
+  const { addAnnouncer } = useContext(AnnouncersContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
   const handleSave = () => {
-    addTopic && addTopic(value, type);
+    addAnnouncer && addAnnouncer(value, type);
   };
   return (
-    <Card bgColor={"black"} >
-      <CardBody >
+    <Card bgColor={"black"}>
+      <CardBody>
         <Flex direction={"column"} gap={2}>
           <Input
             placeholder="new Announcement..."
@@ -31,7 +29,7 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
             // maxLength={20}
             value={value}
             onChange={handleChange}
-            data-cy="input-topic"
+            data-cy="input-announcer"
             color="white"
           />
           <Flex justify="space-between" flexWrap="wrap">
@@ -39,7 +37,7 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
               flex="1"
               variant="ghost"
               onClick={handleSave}
-              data-cy="save-topic-btn"
+              data-cy="save-announcer-btn"
               backgroundColor="rgb(64, 229, 75)"
               marginRight="10px"
             >
@@ -49,7 +47,7 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
               flex="1"
               variant="ghost"
               onClick={onCancel}
-              data-cy="cancel-add-topic-btn"
+              data-cy="cancel-add-announcer-btn"
               backgroundColor="red"
             >
               Cancel
@@ -61,4 +59,4 @@ const TopicInput = ({ type, onCancel }: TopicInputProps) => {
   );
 };
 
-export default TopicInput;
+export default AnnouncerInput;

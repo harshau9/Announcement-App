@@ -1,28 +1,28 @@
-export enum TopicType {
+export enum AnnouncerType {
   General = "General",
   Coding = "Coding",
   DSA = "DSA",
   CSBT = "CSBT",
 }
 
-export type Topic = {
+export type Announcer = {
   id: number;
-  type: TopicType;
+  type: AnnouncerType;
   message: string;
   likes: number;
 };
 
-export type TopicInfo = {
+export type AnnouncerInfo = {
   title: string;
   sectionBgColor: string;
   itemBgColor: string;
 };
 
-export const topicInfo: Record<TopicType, TopicInfo> = {
+export const announcerInfo: Record<AnnouncerType, AnnouncerInfo> = {
   General: {
     title: "General Announcements",
     sectionBgColor: "#ea9c1b",
-    itemBgColor: "#5f685a"
+    itemBgColor: "#5f685a",
   },
   Coding: {
     title: "Coding Announcement",

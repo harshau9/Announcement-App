@@ -2,24 +2,24 @@ import React, { useContext } from "react";
 import { Button, Card, CardBody, Flex, Heading } from "@chakra-ui/react";
 import { BiLike, BiTrash } from "react-icons/bi";
 
-import { TopicsContext } from "../context/AnnouncmentContext";
-import { Topic, topicInfo } from "../constants";
+import { AnnouncersContext } from "../context/AnnouncementContext";
+import { Announcer, announcerInfo } from "../constants";
 
-interface TopicItemProps extends Topic {}
+interface AnnouncerItemProps extends Announcer {}
 
-const TopicItem = (props: TopicItemProps) => {
-  const info = topicInfo[props.type];
-  const { likeTopic, deleteTopic } = useContext(TopicsContext);
+const AnnouncerItem = (props: AnnouncerItemProps) => {
+  const info = announcerInfo[props.type];
+  const { likeAnnouncer, deleteAnnouncer } = useContext(AnnouncersContext);
   const updateLikeCountHandle = async () => {
-    likeTopic && likeTopic(props.id, props.likes + 1);
+    likeAnnouncer && likeAnnouncer(props.id, props.likes + 1);
   };
   const onDeleteHandle = async () => {
-    deleteTopic && deleteTopic(props.id);
+    deleteAnnouncer && deleteAnnouncer(props.id);
   };
   return (
-    <Card bgColor={info.itemBgColor} data-cy="topic-item" >
+    <Card bgColor={info.itemBgColor} data-cy="announcer-item">
       <CardBody>
-        <h3 data-cy="topic-message" style={{color:"white"}}>
+        <h3 data-cy="announcer-message" style={{ color: "white" }}>
           {props.message}
         </h3>
         <Flex flexDirection="column" flexWrap="wrap" gap={2}>
@@ -28,7 +28,7 @@ const TopicItem = (props: TopicItemProps) => {
             variant="ghost"
             leftIcon={<BiLike />}
             onClick={updateLikeCountHandle}
-            data-cy="like-topic-btn"
+            data-cy="like-announcer-btn"
           >
             ({props.likes}) Likes
           </Button> */}
@@ -36,8 +36,8 @@ const TopicItem = (props: TopicItemProps) => {
             flex="1"
             variant="ghost"
             onClick={onDeleteHandle}
-            data-cy="delete-topic-btn"
-            width ="auto"
+            data-cy="delete-announcer-btn"
+            width="auto"
             backgroundColor="red"
             margin="auto"
             border="1px solid white"
@@ -52,4 +52,4 @@ const TopicItem = (props: TopicItemProps) => {
   );
 };
 
-export default TopicItem;
+export default AnnouncerItem;
