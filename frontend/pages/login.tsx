@@ -18,8 +18,6 @@ import {
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import Link from "next/link";
 import { useToast } from "@chakra-ui/react";
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
-import Navbar from "./components/Navbar";
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
@@ -89,7 +87,6 @@ const Login = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Navbar/>
       <Stack
         flexDir="column"
         mb="2"
@@ -137,21 +134,12 @@ const Login = () => {
                 <FormHelperText textAlign="right">
                 </FormHelperText>
               </FormControl>
-              {/* <Link href="/announcer"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
-                  toast({
-                    title: 'Login Successfull.',
-                    description: " Now you can add Announcements to the section of yours",
-                    status: 'success',
-                    duration: 2000,
-                    isClosable: true,
-                    position:"top"
-                  })}}>Login</Button></Link> */}
                   <Button  onClick={handleSubmit}>Login</Button>
             </Stack>
           </form>
         </Box>
       </Stack>
-      <Box style={{marginBottom:"50px"}}>
+      <Box style={{marginTop:"30px"}}>
         New to us?{"      "}
         <Link href="/register">Sign-Up</Link>
       </Box>

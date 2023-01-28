@@ -12,13 +12,13 @@ import {
   Heading,
   Text,
   useColorModeValue,
+
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
-import { Select } from "@chakra-ui/react";
-import Navbar from "./components/Navbar";
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
@@ -56,16 +56,14 @@ const Register = () => {
       })      
   };
   return (
-    <>
-    <Navbar/>
     <Flex
       minH={"100vh"}
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} >
+        <Stack align={"center"} >
           <Heading fontSize={"4xl"} textAlign={"center"}>
             Sign up
           </Heading>
@@ -75,6 +73,7 @@ const Register = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
+          
         >
           <Stack spacing={4}>
             <HStack>
@@ -101,10 +100,12 @@ const Register = () => {
             </FormControl>
             <FormControl id="gender" isRequired>
               <FormLabel>Gender</FormLabel>
-              <Select placeholder="Select option">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </Select>
+              <Input
+                type="text"
+                placeholder="Enter Gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
@@ -134,7 +135,6 @@ const Register = () => {
         </Box>
       </Stack>
     </Flex>
-    </>
   );
 };
 
