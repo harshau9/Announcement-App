@@ -12,13 +12,13 @@ import {
   Heading,
   Text,
   useColorModeValue,
-
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
-
+import { Select } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
@@ -46,14 +46,16 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
   return (
+    <>
+    <Navbar/>
     <Flex
       minH={"100vh"}
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} >
-        <Stack align={"center"} >
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
             Sign up
           </Heading>
@@ -63,7 +65,6 @@ const Register = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
-          
         >
           <Stack spacing={4}>
             <HStack>
@@ -90,12 +91,10 @@ const Register = () => {
             </FormControl>
             <FormControl id="gender" isRequired>
               <FormLabel>Gender</FormLabel>
-              <Input
-                type="text"
-                placeholder="Enter Gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              />
+              <Select placeholder="Select option">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </Select>
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
@@ -119,20 +118,29 @@ const Register = () => {
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>
-            <Link href="/login"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
-                  toast({
-                    title: 'Sign-Up Successfull.',
-                    description: "Your account created Successfully",
-                    status: 'success',
-                    duration: 2000,
-                    isClosable: true,
-                    position:"top"
-                  })}}>Signup</Button></Link>
+              <Link href="/login">
+                <Button
+                  style={{ width: "90%", margin: "5%" }}
+                  onClick={() => {
+                    toast({
+                      title: "Sign-Up Successfull.",
+                      description: "Your account created Successfully",
+                      status: "success",
+                      duration: 2000,
+                      isClosable: true,
+                      position: "top",
+                    });
+                  }}
+                >
+                  Signup
+                </Button>
+              </Link>
             </Stack>
           </Stack>
         </Box>
       </Stack>
     </Flex>
+    </>
   );
 };
 
