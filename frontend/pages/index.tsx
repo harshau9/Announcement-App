@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Text } from "@chakra-ui/react";
+import TopicsBoard from "./components/AnnouncementBoard";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Text fontSize="6xl">Hello World</Text>
+        <TopicsBoard />
       </main>
     </>
   );
