@@ -12,10 +12,12 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useToast } from "@chakra-ui/react";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +25,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
+  const toast = useToast();
+
   const handleSubmit = () => {
     const payload = {
       name,
@@ -48,20 +52,18 @@ const Register = () => {
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} >
+        <Stack align={"center"} >
           <Heading fontSize={"4xl"} textAlign={"center"}>
             Sign up
           </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
         </Stack>
         <Box
           rounded={"lg"}
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
+          
         >
           <Stack spacing={4}>
             <HStack>
@@ -117,18 +119,15 @@ const Register = () => {
               </InputGroup>
             </FormControl>
             <Stack spacing={10} pt={2}>
-              <Button
-                onClick={handleSubmit}
-                loadingText="Submitting"
-                size="lg"
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign up
-              </Button>
+            <Link href="/login"><Button style={{width:"90%",margin:"5%"}} onClick={() => {
+                  toast({
+                    title: 'Sign-Up Successfull.',
+                    description: "Your account created Successfully",
+                    status: 'success',
+                    duration: 2000,
+                    isClosable: true,
+                    position:"top"
+                  })}}>Signup</Button></Link>
             </Stack>
           </Stack>
         </Box>

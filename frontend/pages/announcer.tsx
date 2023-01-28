@@ -13,7 +13,7 @@ import { AnnouncersContext } from "./context/AnnouncementContext";
 import AnnouncerSection from "./components/AnnouncementSection";
 
 import { Announcer, AnnouncerType } from "./constants";
-
+import Example from "./components/mode"
 const Announcer = () => {
   const { announcers } = useContext(AnnouncersContext);
   return (
@@ -29,6 +29,7 @@ const Announcer = () => {
         >
           Announcements:{announcers.length}
         </Button>
+        <Example/>
       </Box>
 
       <Center flexDirection="column">
