@@ -2,14 +2,14 @@ const express = require("express")
 require("dotenv").config();
 const {connection} = require("./configs/db");
 const {userRouter} = require("./routes/User.route");
-// const {postRouter} = require("./routes/Post.route");
-// const {authenticate} = require("./middlewares/authenticate.middleware");
-// const cors=require("cors");
+
+const {authenticate} = require("./middlewares/authenticate.middleware");
+const cors=require("cors");
 const app = express();
 
-// app.use(cors({
-//   origin:"*"
-// }))
+app.use(cors({
+  origin:"*"
+}))
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("HOMEPAGE");
