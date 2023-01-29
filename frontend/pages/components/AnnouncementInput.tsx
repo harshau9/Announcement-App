@@ -20,26 +20,27 @@ const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
     addAnnouncer && addAnnouncer(value, type);
   };
   return (
-    <Card bgColor={"black"}>
+    <Card bgColor={"white"}>
       <CardBody>
         <Flex direction={"column"} gap={2}>
           <Input
-            placeholder="new Announcement..."
+            placeholder="Enter Here"
             size="md"
             // maxLength={20}
             value={value}
             onChange={handleChange}
-            data-cy="input-announcer"
             color="white"
+            fontSize={{ base: "14px", sm: "15px" }}
           />
           <Flex justify="space-between" flexWrap="wrap">
             <Button
               flex="1"
               variant="ghost"
               onClick={handleSave}
-              data-cy="save-announcer-btn"
-              backgroundColor="rgb(64, 229, 75)"
+              backgroundColor="#14A44D"
               marginRight="10px"
+              color="white"
+              fontSize={{ base: "12px", sm: "15px" }}
             >
               Create
             </Button>
@@ -47,8 +48,9 @@ const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
               flex="1"
               variant="ghost"
               onClick={onCancel}
-              data-cy="cancel-add-announcer-btn"
-              backgroundColor="red"
+              backgroundColor="#DC4C64"
+              color="white"
+              fontSize={{ base: "12px", sm: "15px" }}
             >
               Cancel
             </Button>

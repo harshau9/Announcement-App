@@ -11,7 +11,6 @@ import {
 import { Announcer, announcerInfo, AnnouncerType } from "../constants";
 import AnnouncerItem from "./AnnouncementItem";
 import AnnouncerInput from "./AnnouncementInput";
-import { BiMessageSquareAdd } from "react-icons/bi";
 
 type AnnouncerSectionProps = {
   announcerType: AnnouncerType;
@@ -33,23 +32,21 @@ const AnnouncerSection = ({
   }, [announcers]);
 
   return (
-    <Card
-      bgColor={info.sectionBgColor}
-      data-cy={`announcer-section-${announcerType}`}
-    >
+    <Card bgColor={info.sectionBgColor}>
       <CardHeader>
         <Heading
           size="md"
-          data-cy="announcer-title"
           display="flex"
           padding="10px"
           justifyContent="center"
           boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          color="white"
+          fontSize={{ base: "15px", sm: "18px" }}
         >
           {info.title}
         </Heading>
       </CardHeader>
-      <CardBody>
+      <CardBody fontSize={{ base: "13px", sm: "16px" }}>
         <Flex direction={"column"} gap={2}>
           {announcers.map((announcer) => (
             <AnnouncerItem key={announcer.id} {...announcer} />
@@ -64,12 +61,14 @@ const AnnouncerSection = ({
       </CardBody>
       <CardFooter>
         <Button
-          width={"100%"}
+          width={{ base: "100%", sm: "70%" }}
           variant="ghost"
+          margin="auto"
           disabled={addNew}
           onClick={() => setAddNew(true)}
-          data-cy="announcer-add-btn"
-          // backgroundColor="rgb(239, 153, 179)"
+          color="black"
+          backgroundColor="white"
+          fontSize={{ base: "10px", sm: "18px" }}
         >
           Create New Announcement
         </Button>

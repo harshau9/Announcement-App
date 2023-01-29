@@ -13,11 +13,11 @@ import { AnnouncersContext } from "./context/AnnouncementContext";
 import AnnouncerSection from "./components/AnnouncementSection";
 
 import { Announcer, AnnouncerType } from "./constants";
-import Example from "./components/mode"
+import Example from "./components/mode";
 const Announcer = () => {
   const { announcers } = useContext(AnnouncersContext);
   return (
-    <Container maxW="container.xl" data-cy="announcers-board" marginTop="50px">
+    <Container maxW="container.xl" marginTop="50px">
       <Box style={{ justifyContent: "space-between", display: "flex" }}>
         <Button
           style={{
@@ -27,18 +27,19 @@ const Announcer = () => {
             color: "white",
           }}
         >
-          Announcements:{announcers.length}
+          Announcements: {announcers.length}
         </Button>
-        <Example/>
+        <Example />
       </Box>
 
-      <Center flexDirection="column">
-        {/* <Heading as="h2" data-cy="total-announcers">
-          Total announcers: {announcers.length}
-        </Heading> */}
-      </Center>
+      <Center flexDirection="column"></Center>
       <Divider my={4} />
-      <SimpleGrid spacing={4} templateColumns="repeat(2, 1fr)" width="100%">
+      <SimpleGrid
+        spacing={4}
+        templateColumns="repeat(2, 1fr)"
+        width="100%"
+        marginBottom="30px"
+      >
         {Object.values(AnnouncerType).map((announcer) => (
           <AnnouncerSection
             key={announcer}
@@ -54,4 +55,3 @@ const Announcer = () => {
 };
 
 export default Announcer;
-

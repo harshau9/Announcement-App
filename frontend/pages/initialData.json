@@ -1,3 +1,7 @@
 [
-  
+  { "id": 1, "type": "General", "message": "Hello Students, this notice is to let you all know that there will be no classes tomorrow because it is Republic Day which is a National Holiday." },
+  { "id": 2, "type": "Coding", "message": "Hello Students, your new time schedule for coding classes has been updated in the Sprint plan. Make sure to go through it once." },
+  { "id": 3, "type": "Coding", "message": "Also there will be a coding hackathon happening this Saturday. If you want to register, make sure to give your names to your IA." },
+  { "id": 4, "type": "DSA", "message": "We are introducing a new feature for checking your DSA evaluations. This will be furthur covered in tomorrow's Scrum." },
+  { "id": 5, "type": "CSBT", "message": "We will be having a guest lecture in tomorrow's CSBT session. It is mandatory to attend the session." }
 ]

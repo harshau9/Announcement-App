@@ -17,32 +17,22 @@ const AnnouncerItem = (props: AnnouncerItemProps) => {
     deleteAnnouncer && deleteAnnouncer(props.id);
   };
   return (
-    <Card bgColor={info.itemBgColor} data-cy="announcer-item">
+    <Card bgColor={info.itemBgColor}>
       <CardBody>
-        <h3 data-cy="announcer-message" style={{ color: "white" }}>
-          {props.message}
-        </h3>
+        <h3 style={{ color: "white" }}>{props.message}</h3>
         <Flex flexDirection="column" flexWrap="wrap" gap={2}>
-          {/* <Button
-            flex="1"
-            variant="ghost"
-            leftIcon={<BiLike />}
-            onClick={updateLikeCountHandle}
-            data-cy="like-announcer-btn"
-          >
-            ({props.likes}) Likes
-          </Button> */}
           <Button
             flex="1"
             variant="ghost"
             onClick={onDeleteHandle}
-            data-cy="delete-announcer-btn"
             width="auto"
-            backgroundColor="red"
+            backgroundColor="#3B71CA"
             margin="auto"
             border="1px solid white"
-            padding="5px"
+            padding="10px 15px"
             marginTop="10px"
+            borderRadius="10px"
+            color="white"
           >
             Delete
           </Button>
