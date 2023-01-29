@@ -1,21 +1,29 @@
-Team Members : Salman Ajani , Harsha Umesh , Niranjan Salunkhe
-Project Name : Announcement app
-This project was assigned to us during our Revision Module as a Hackethon 
+<h1>Announcer Dashboard</h1>
 
-Tech-Stack used : Next.Js ,React.Js, TypeScript , MongoDB , ChakraUi 
+<h2>Description</h2>
+<p>This is a dashboard that is used by teachers to add or delete the announcements that they need to make to the students everyday.</p>
 
+<h2>Purpose</h2>
+<p>The purpose of this app is to give teachers an easy access point for the annoucements that they want to make.</p>
 
+<h2>Team Members</h2>
+<ul>
+<li>Salman Ajani</li>
+<li>Harsha Umesh</li>
+<li>Niranjan Salunkhe</li>
+</ul>
 
+<h2>Techstack</h2>
+<ul>
+<li>Next.js</li>
+<li>React</li>
+<li>Typescript</li>
+<li>MongoDB</li>
+<li>ChakraUI</li>
+</ul>
 
+<h2>Some Demo Pictures of our App</h2>
 
-
-
-Purpose of this project is to create an announcement section for teachers and students where teachers can create announcements related to dauly curriculum and students can able to see all those annoucements at one page only.
-
-
-
-
-some Demo Pictures of our app 
 
 
 
