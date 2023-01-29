@@ -9,11 +9,12 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-import { AnnouncersContext } from "./context/AnnouncementContext";
-import AnnouncerSection from "./components/AnnouncementSection";
+import { AnnouncersContext } from "../context/AnnouncementContext";
+import AnnouncerSection from "../components/AnnouncementSection";
 
-import { Announcer, AnnouncerType } from "./constants";
-import Example from "./components/mode";
+import { Announcer, AnnouncerType } from "../lib/constants";
+import Example from "../components/mode";
+
 const Announcer = () => {
   const { announcers } = useContext(AnnouncersContext);
   return (

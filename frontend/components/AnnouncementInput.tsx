@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Card, CardBody, Flex, Input } from "@chakra-ui/react";
 
-import { AnnouncerType } from "../constants";
+import { AnnouncerType } from "../lib/constants";
 import { AnnouncersContext } from "../context/AnnouncementContext";
 
 type AnnouncerInputProps = {
@@ -29,8 +29,9 @@ const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
             // maxLength={20}
             value={value}
             onChange={handleChange}
-            color="white"
+            color="black"
             fontSize={{ base: "14px", sm: "15px" }}
+            border="1px solid black"
           />
           <Flex justify="space-between" flexWrap="wrap">
             <Button
@@ -41,6 +42,10 @@ const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
               marginRight="10px"
               color="white"
               fontSize={{ base: "12px", sm: "15px" }}
+              _hover={{
+                background: "green",
+                color: "white",
+              }}
             >
               Create
             </Button>
@@ -51,6 +56,10 @@ const AnnouncerInput = ({ type, onCancel }: AnnouncerInputProps) => {
               backgroundColor="#DC4C64"
               color="white"
               fontSize={{ base: "12px", sm: "15px" }}
+              _hover={{
+                background: "red",
+                color: "white",
+              }}
             >
               Cancel
             </Button>

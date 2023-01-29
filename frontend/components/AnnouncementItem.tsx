@@ -3,7 +3,7 @@ import { Button, Card, CardBody, Flex, Heading } from "@chakra-ui/react";
 import { BiLike, BiTrash } from "react-icons/bi";
 
 import { AnnouncersContext } from "../context/AnnouncementContext";
-import { Announcer, announcerInfo } from "../constants";
+import { Announcer, announcerInfo } from "../lib/constants";
 
 interface AnnouncerItemProps extends Announcer {}
 

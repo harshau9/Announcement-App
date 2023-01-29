@@ -24,7 +24,7 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) setLogin(true);
-  });
+  }, []);
 
   return (
     <Box

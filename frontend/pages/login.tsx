@@ -107,10 +107,7 @@ const Login = () => {
             >
               <FormControl>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" />
                   <Input
                     type="email"
                     placeholder="Enter Email"
@@ -122,11 +119,7 @@ const Login = () => {
               </FormControl>
               <FormControl>
                 <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    color="gray.300"
-                    children={<CFaLock color="gray.300" />}
-                  />
+                  <InputLeftElement pointerEvents="none" color="gray.300" />
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter Password"

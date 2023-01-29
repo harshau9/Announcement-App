@@ -8,7 +8,7 @@ import {
   Flex,
   Heading,
 } from "@chakra-ui/react";
-import { Announcer, announcerInfo, AnnouncerType } from "../constants";
+import { Announcer, announcerInfo, AnnouncerType } from "../lib/constants";
 import AnnouncerItem from "./AnnouncementItem";
 import AnnouncerInput from "./AnnouncementInput";
 

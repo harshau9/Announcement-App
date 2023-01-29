@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
-import { Announcer, AnnouncerType } from "../constants";
-import initialAnnouncers from "../initialData.json";
+import { Announcer, AnnouncerType } from "../lib/constants";
+import initialAnnouncers from "../pages/initialData.json";
 
 type AnnouncersContextProps = {
   announcers: Announcer[];
