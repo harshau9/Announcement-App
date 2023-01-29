@@ -35,7 +35,7 @@ const Register = () => {
       gender,
       password,
     };
-    fetch("http://localhost:8080/users/register", {
+    fetch("https://dugong-moccasins.cyclic.app/users/register", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
