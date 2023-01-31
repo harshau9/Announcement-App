@@ -37,7 +37,7 @@ const Announcer = () => {
       <Divider my={4} />
       <SimpleGrid
         spacing={4}
-        templateColumns="repeat(2, 1fr)"
+        templateColumns={{ base: "repeat(1, 1fr)", sm: "repeat(2, 1fr)" }}
         width="100%"
         marginBottom="30px"
       >
