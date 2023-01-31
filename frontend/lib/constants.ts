@@ -9,7 +9,6 @@ export type Announcer = {
   id: number;
   type: AnnouncerType;
   message: string;
-  likes: number;
 };
 
 export type AnnouncerInfo = {

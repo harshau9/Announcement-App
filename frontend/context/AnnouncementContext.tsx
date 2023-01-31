@@ -6,7 +6,6 @@ import initialAnnouncers from "../pages/initialData.json";
 type AnnouncersContextProps = {
   announcers: Announcer[];
   addAnnouncer?: (value: string, type: AnnouncerType) => void;
-  likeAnnouncer?: (id: number, newLikesCount: number) => void;
   deleteAnnouncer?: (id: number) => void;
 };
 
@@ -26,19 +25,8 @@ const AnnouncerProvider = ({ children }: { children: React.ReactNode }) => {
         id: Date.now(),
         message,
         type,
-        likes: 0,
       },
     ]);
-  };
-
-  const likeAnnouncer = async (id: number, newLikesCount: number) => {
-    let updatedAnnouncers = announcers.map((announcer) => {
-      if (announcer.id === id) {
-        announcer.likes = newLikesCount;
-      }
-      return announcer;
-    });
-    setAnnouncers(updatedAnnouncers);
   };
 
   const deleteAnnouncer = (id: number) => {
@@ -50,7 +38,7 @@ const AnnouncerProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AnnouncersContext.Provider
-      value={{ announcers, addAnnouncer, likeAnnouncer, deleteAnnouncer }}
+      value={{ announcers, addAnnouncer, deleteAnnouncer }}
     >
       {children}
     </AnnouncersContext.Provider>
